@@ -1,46 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lilyum Home ile ev tekstili sektöründe kaliteyi ve ayrıcalığı tadın.">
     <title>Lilyum Home</title>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <style>
-        html, body {
+        /* Temel Reset ve Box Sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Taşmayı engellemek için */
+        }
+
+        html,
+        body {
             width: 100%;
             height: 100%;
+            overflow: hidden; /* Sayfanın kendisinde kaydırma çubuğu olmasın */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         }
+
         iframe {
             border: none;
-            width: 100vw;
-            height: 100vh;
-            display: block; /* Blok düzeyinde öğe yaparak taşmayı engellemek için */
+            width: 100vw; /* Viewport genişliğinin %100'ü */
+            height: 100vh; /* Viewport yüksekliğinin %100'ü */
+            display: block; /* display:inline elemanlarının altında oluşabilecek boşlukları engeller */
         }
-        .button {
+
+        .custom-badge {
             position: fixed;
-            right: 18px;
-            bottom: 19px;
-            background-color: #333;
+            /* Framer etiketinin genellikle olduğu yer ve tipik boyutları düşünülerek ayarlandı */
+            /* Bu değerleri kendi ekranınızda Framer etiketinin tam konumuna göre ince ayar yapmanız gerekebilir */
+            right: 16px;   /* Framer genellikle 16px civarı bir boşluk bırakır */
+            bottom: 16px;  /* Framer genellikle 16px civarı bir boşluk bırakır */
+            width: 190px;  /* Framer logosu ve metnini kaplayacak genişlik (öncekine göre artırıldı) */
+            height: 40px;  /* Standart bir etiket yüksekliği */
+            
+            background-color: #2c3e50; /* Koyu, modern bir renk */
             color: white;
-            width: 150px;
-            height: 38px;
-            text-align: center;
-            line-height: 35px;
+            
+            display: flex; /* İçeriği (metni) ortalamak için */
+            align-items: center;
+            justify-content: center;
+            
             text-decoration: none;
-            border-radius: 10px;
-            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Yumuşak kenarlar */
             font-size: 14px;
+            font-weight: 600; /* Biraz daha belirgin font */
+            
+            z-index: 9999; /* Her şeyin üzerinde olmasını garantiler */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); /* Daha belirgin bir gölge */
+            
+            /* Hover efektleri için yumuşak geçişler */
+            transition: background-color 0.25s ease-out,
+                        transform 0.2s ease-out,
+                        box-shadow 0.25s ease-out;
+            cursor: pointer; /* Tıklanabilir olduğunu belirtir */
         }
-        .button:hover {
-            background-color: #555;
+
+        .custom-badge:hover {
+            background-color: #e74c3c; /* Trendyol kırmızısına yakın canlı bir renk veya markanızla uyumlu başka bir renk */
+            /* background-color: #3498db; /* Alternatif olarak canlı bir mavi */
+            color: white;
+            transform: translateY(-3px) scale(1.03); /* Yukarı kalkma ve hafif büyüme efekti */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 4px rgba(0, 0, 0, 0.25); /* Hover'da daha güçlü gölge */
         }
+
+        .custom-badge:active { /* Tıklama anı için ek efekt */
+            transform: translateY(-1px) scale(1.01);
+            background-color: #c0392b; /* Hover renginin biraz daha koyusu */
+        }
+
     </style>
 </head>
 <body>
-    <iframe src="https://lilyum2.framer.ai"></iframe>
-    <a href="https://www.trendyol.com/sr?mid=998629" class="button">Lilyum Home ></a>
+    <iframe src="https://lilyum2.framer.ai" title="Lilyum Home Framer Projesi"></iframe>
+    <!-- Buton Metni Güncellendi -->
+    <a href="https://www.trendyol.com/sr?mid=998629" class="custom-badge" target="_blank" rel="noopener noreferrer">
+        Trendyol Mağazamız
+    </a>
 </body>
 </html>
